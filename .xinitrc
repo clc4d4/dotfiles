@@ -48,9 +48,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-#siji font
-xset +fp /home/aclopax/.local/share/fonts
-xset fp rehash
 
 #set resolution
 xrandr --output eDP-1 --mode 3840x2160 --output DP2 --mode 1920x1080 --scale 2x2 &
