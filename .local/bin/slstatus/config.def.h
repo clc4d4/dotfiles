@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 5000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -16,7 +16,7 @@ static const char unknown_str[] = "n/a";
  *                                                     NULL on OpenBSD/FreeBSD
  * battery_state       battery charging state          battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
- * battery_remaining   battery remaining HH:MM         battery name (BAT0)
+ d battery_remaining   battery remaining HH:MM         battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
  * cpu_perc            cpu usage in percent            NULL
  * cpu_freq            cpu frequency in MHz            NULL
@@ -65,5 +65,9 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	{ cpu_perc,         "%s%%|",    NULL },
+	{ ram_used,         "%s|",      NULL },
+	{ wifi_essid,       "%s|",      "wlan0" },
+	{ battery_perc,     "\uf578%s%%|",    "BAT0" },
+	{ datetime,         "%s",       "%a %d %b %R" },
 };
